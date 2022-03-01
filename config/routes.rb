@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_scope :user do
+    root :to => "users/sessions#new"
+  end
+
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords',
@@ -15,5 +19,16 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  # root to: 'home#index'
+
+  namespace :admins do
+
+  end
+
+  namespace :managers do
+
+  end
+
+  namespace :users do
+
+  end
 end
