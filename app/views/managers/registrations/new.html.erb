@@ -1,29 +1,38 @@
-<h2>Sign up</h2>
+<main class="bg-gray-500 max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+  <section>
+    <h3 class="font-bold text-2xl">Welcome to Startup</h3>
+    <p class="text-gray-600 pt-2">Sign up to your account.</p>
+  </section>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "managers/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "managers/shared/links" %>
+  <section class="mt-10">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "flex flex-col") do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <div class="mb-6 pt-3 rounded bg-gray-200">
+        <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2 ml-3" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" %>
+      </div>
+      <div class="mb-6 pt-3 rounded bg-gray-200">
+        <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2 ml-3" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" %>
+      </div>
+      <div class="mb-6 pt-3 rounded bg-gray-200">
+        <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-2 ml-3" %>
+        <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+      <%= render "users/shared/links" %>
+      <%# <div class="flex justify-end">
+          <a href="#" class="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
+      </div> %>
+      <%= f.submit "Sign up", class: "bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" %>
+    <% end %>
+  </section>
+</main>

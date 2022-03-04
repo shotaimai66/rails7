@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_scope :user do
     root :to => "users/sessions#new"
   end
@@ -25,10 +24,10 @@ Rails.application.routes.draw do
   end
 
   namespace :managers do
-
+    resources :dashboards, only: [:index]
   end
 
   namespace :users do
-
+    resources :dashboards, only: [:index]
   end
 end
