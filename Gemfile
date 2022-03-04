@@ -32,6 +32,8 @@ gem "jbuilder"
 
 gem 'devise'
 
+gem 'devise-i18n'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
