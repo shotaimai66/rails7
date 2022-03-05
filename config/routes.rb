@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/_system_admin_', as: 'rails_admin'
   devise_scope :user do
     root :to => "users/sessions#new"
   end
@@ -29,5 +30,9 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :dashboards, only: [:index]
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 end

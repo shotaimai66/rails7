@@ -3,8 +3,10 @@
     <h3 class="font-bold text-2xl">管理者ログイン</h3>
   </section>
 
+  <%= render "managers/shared/error_messages", resource: resource %>
+
   <section class="mt-10">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "flex flex-col") do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, class: "flex flex-col") do |f| %>
         <div class="mb-6 pt-3 rounded bg-gray-200">
           <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2 ml-3" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" %>
@@ -19,10 +21,7 @@
             <%= f.label :remember_me %>
           </div>
         <% end %>
-        <%= render "users/shared/links" %>
-        <%# <div class="flex justify-end">
-            <a href="#" class="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
-        </div> %>
+        <%= render "managers/shared/links" %>
         <%= f.submit t('.sign_in'), class: "bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" %>
     <% end %>
   </section>
