@@ -82,13 +82,26 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
+  # 開発者向けドキュメント生成
+  gem 'yard'
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # 結合テスト用ツール
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'turnip'
+  gem 'webrick'
+
+  # カバレッジ測定ツール
+  gem 'simplecov'
+
+  # 脆弱性チェックツール
+  gem 'brakeman'
+
+  # N+1問題検出ツール
+  gem 'bullet'
 end
