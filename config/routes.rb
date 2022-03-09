@@ -1,7 +1,9 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
+
+Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   mount RailsAdmin::Engine => '/_system_admin_', as: 'rails_admin'
   devise_scope :user do
-    root :to => "users/sessions#new"
+    root to: 'users/sessions#new'
   end
 
   devise_for :admins, controllers: {
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
   }
 
   namespace :admins do
-
   end
 
   namespace :managers do
@@ -32,7 +33,5 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index]
   end
 
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
