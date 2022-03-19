@@ -32,6 +32,10 @@ http://localhost:3000
 
 
 ## 開発コマンド
+- railsでbinding.irbを使う時などは以下のコマンドで起動するのが良い（いつもこれで起動でも良さそう）
+```
+bin/debug
+```
 - 全体テスト実行
 ```
 bin/test
