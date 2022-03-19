@@ -6,7 +6,7 @@ else
   SimpleCov.at_exit do
     SimpleCov.result.format!
 
-    if SimpleCov.result.covered_percent < 1
+    if SimpleCov.result.covered_percent < 80
       puts "\n\e[31m!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n"
       puts "Converage is under 100%. See `coverage/index.html`\n"
       puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\e[0m\n\n"
