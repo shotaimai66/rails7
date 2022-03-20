@@ -19,9 +19,9 @@ jobs:
         # イメージのビルド
         docker-compose build
         # 必要なアップデート
-        docker-compose run app yarn build:css
+        docker-compose run --rm app rails assets:precompile
         # データベースの作成
-        docker-compose run app rake db:create
+        docker-compose run --rm app rake db:create
       env:
         RAILS_ENV: test
 
