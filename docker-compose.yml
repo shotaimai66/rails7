@@ -4,6 +4,7 @@ services:
     restart: always
     build:
       context: .
+      dockerfile: 'DEV.Dockerfile'
     volumes:
       - .:/app:cached
       - bundle:/usr/local/bundle:cached
