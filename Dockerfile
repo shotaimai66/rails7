@@ -19,3 +19,7 @@ RUN bundle install -j4
 RUN SECRET_KEY_BASE=placeholder RAILS_ENV=production bundle exec rails assets:precompile \
  && yarn cache clean \
  && rm -rf node_modules tmp/cache
+
+EXPOSE 3000
+
+CMD bash -c "rm -f tmp/pids/server.pid && bundle exec puma -C config/puma.rb"
