@@ -3,7 +3,6 @@
 module Users
   # ユーザーのダッシュボード
   class DashboardsController < Users::Base
-    def index
-    end
+    def index; end
   end
 end

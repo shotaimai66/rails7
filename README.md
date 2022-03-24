@@ -60,3 +60,7 @@ bin/docker/bundle/exec rspec specファイルの相対path
 ```
 bin/docker/bundle/exec rubocop
 ```
+- erd生成
+```
+bin/docker/bundle/exec erd
+```
