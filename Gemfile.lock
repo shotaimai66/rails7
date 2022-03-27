@@ -409,7 +409,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bonsai-elasticsearch-rails (~> 6.0)
+  bonsai-elasticsearch-rails (~> 6)
   bootsnap
   brakeman
   bullet
@@ -420,8 +420,8 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
-  elasticsearch-model (~> 6.0)
-  elasticsearch-rails (~> 6.0)
+  elasticsearch-model (~> 6)
+  elasticsearch-rails (~> 6)
   factory_bot_rails
   jbuilder
   jsbundling-rails

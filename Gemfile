@@ -60,9 +60,9 @@ gem 'bootsnap', require: false
 gem 'sassc-rails'
 
 # ES
-gem 'bonsai-elasticsearch-rails', '~> 6.0'
-gem 'elasticsearch-model', '~> 6.0'
-gem 'elasticsearch-rails', '~> 6.0'
+gem 'bonsai-elasticsearch-rails', '~> 6'
+gem 'elasticsearch-model', '~> 6'
+gem 'elasticsearch-rails', '~> 6'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
