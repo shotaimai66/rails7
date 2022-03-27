@@ -1,5 +1,5 @@
-# module Books
-#   module Searchable
+module Books
+  module Searchable
 #     extend ActiveSupport::Concern
 
 #     included do
@@ -42,5 +42,5 @@
 #           })
 #       end
 #     end
-#   end
-# end
+  end
+end
