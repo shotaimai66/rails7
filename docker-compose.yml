@@ -10,12 +10,16 @@ services:
       - bundle:/usr/local/bundle:cached
       - node_modules:/app/node_modules:cached
     command: sh -c "rm -f tmp/pids/server.pid && ./bin/dev && yard server"
+    environment:
+      AWS_SQS_ENDPOINT: http://fake_sqs:9494
     stdin_open: true
     tty: true
     ports:
       - 3000:3000
     depends_on:
       - db
+      - worker
+      - fake_sqs
       - elasticsearch
 
   db:
@@ -46,6 +50,25 @@ services:
         hard: -1
     ports:
       - "9200:9200"
+
+  worker:
+    build: .
+    command: [ "./run/worker.sh" ]
+    volumes:
+      - ".:/app"
+      - "bundle:/usr/local/bundle"
+    environment:
+      AWS_SQS_ENDPOINT: http://fake_sqs:9494
+    depends_on:
+      - db
+      - fake_sqs
+
+  fake_sqs:
+    image: feathj/fake-sqs
+    ports:
+      - 9494:9494
+    environment:
+      VIRTUAL_HOST: "fake_sqs"
 
 volumes:
   mysql-data:
