@@ -14,7 +14,7 @@ module Books
         mappings dynamic: 'false' do
           indexes :id,        type: 'integer'
           indexes :title,     type: 'text'
-          indexes :auther,    type: 'text'
+          indexes :author,    type: 'text'
           indexes :publisher, type: 'text'
           indexes :series,    type: 'text'
         end
@@ -24,7 +24,7 @@ module Books
       def as_indexed_json(*)
         attributes
           .symbolize_keys
-          .slice(:id, :title, :auther, :publisher, :series)
+          .slice(:id, :title, :author, :publisher, :series)
       end
     end
 
@@ -49,7 +49,7 @@ module Books
             bool: {
               must: [
                 { multi_match: {
-                    fields: %w(title auther publisher series),
+                    fields: %w(title author publisher series),
                     type: 'cross_fields',
                     query: keyword,
                     operator: 'and'

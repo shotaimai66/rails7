@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_27_021131) do
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", default: "", null: false
-    t.string "auther", default: "", null: false
+    t.string "author", default: "", null: false
     t.string "publisher", default: "", null: false
     t.datetime "published_on", null: false
     t.string "series"

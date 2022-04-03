@@ -16,7 +16,7 @@ User.create(email: 'admin@example.com', password: 'password')
 100.times do |n|
   Book.create(
     title: "タイトル-#{n}",
-    auther: "作者-#{n}",
+    author: "作者-#{n}",
     publisher: "出版社-#{n}",
     published_on: DateTime.now,
     series: "シリーズ-#{n}",
