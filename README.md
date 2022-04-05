@@ -18,7 +18,11 @@
 ```
 docker-compose build
 ```
-- アセットのセッティング
+- 必要なパッケージのインストール
+```
+docker-compose run --rm app yarn install
+```
+- アセットのコンパイル
 ```
 docker-compose run --rm app rails assets:precompile
 ```
