@@ -1,0 +1,25 @@
+<%= render "users/shared/error_messages", resource: @form %>
+<div class="w-full max-w-xs">
+  <%= form_with model: @form ,url: inquiry_path, scope: :inquery, local: true, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do |form| %>
+    <div class="mb-4">
+      <%= form.label :name, 'お名前', class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", id: "username", type: "text", placeholder: "お名前" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_field :email, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", id: "username", type: "text", placeholder: "メールアドレス" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :type, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.select :type, options_for_select(InquiryForm::TYPE), class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", id: "username", type: "text", placeholder: "お問い合せ種別" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :content, 'お問い合わせ内容', class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= form.text_area :content, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", id: "username", type: "text", placeholder: "お問合せ内容" %>
+    </div>
+    <%= form.submit '送信する', class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <% end %>
+  <p class="text-center text-gray-500 text-xs">
+    &copy;2020 Acme Corp. All rights reserved.
+  </p>
+</div>
