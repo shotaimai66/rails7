@@ -33,5 +33,9 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :dashboards, only: [:index]
   end
 
+  get  'inquiry/new',      to: 'inquiries#new'
+  post 'inquiry',          to: 'inquiries#create'
+  get  'inquiry/complete', to: 'inquiries#complete'
+
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
