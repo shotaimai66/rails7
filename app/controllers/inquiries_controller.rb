@@ -8,17 +8,16 @@ class InquiriesController < ApplicationController
     if @form.save
       redirect_to inquiry_complete_path, notice: 'お問い合わせを送信いたしました'
     else
-      flash['notice'] = 'お問い合わせを送信いたしました'
+      flash['notice'] = 'お問い合わせの送信に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
 
-  def complete
-  end
+  def complete; end
 
   private
 
   def inquiry_params
-    params.require(:inquery).permit(:name, :content, :type, :email)
+    params.require(:inquiry).permit(:name, :content, :type, :email)
   end
 end
